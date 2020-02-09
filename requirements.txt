@@ -1,4 +1,6 @@
-crispy-forms : pip install django-crispy-forms
-Pillow : pip install Pillow
-django-cleanup : pip install django-cleanup
-requests : pip install requests
+Django==2.0.3
+django-cleanup==2.1.0
+django-crispy-forms==1.7.2
+Pillow
+requests
+django-js-asset==1.0.0
