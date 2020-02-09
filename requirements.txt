@@ -1,0 +1,4 @@
+crispy-forms : pip install django-crispy-forms
+Pillow : pip install Pillow
+django-cleanup : pip install django-cleanup
+requests : pip install requests

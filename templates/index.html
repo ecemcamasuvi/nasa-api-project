@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+    <div class="jumbotron text-white" style="background-color:  #55427A ;">
+        <div class="col-lg-10 px-0">
+            <h1 class="display-4 font-italic">
+                Astronomy Picture of a Day
+            </h1>
+            <p class="lead my-3">
+                This page shows the astronomy picture of the day. You can access the pictures published in previous days
+                from the "Explore" section. If you wish, you can access the astronomy pictures or videos with the keyword you entered
+                in the "Search" section.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+
+        <div class="card mb-4">
+            <h3 class="mt-4 card-title" style="margin-left:10px;margin-right: 10px;">{{photoInfo.title}}</h3>
+            <p class="lead" style="margin-left:10px;margin-right: 10px;">Posted
+                {%if photoInfo.owner %}
+                by {{photoInfo.owner}} 
+                {%endif%}
+                on {{photoInfo.date}} 
+            </p>
+
+            <hr>
+            {% if photoInfo.url %}
+            <img class="card-img-top img-thumbnail img-fluid rounded" src="{{photoInfo.url}}" alt="">
+            {% endif %}
+            <hr>
+
+            <p class="card-body lead" style="margin-left:10px;margin-right: 10px;">
+                {{photoInfo.explanation}}
+            </p>
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock body %}

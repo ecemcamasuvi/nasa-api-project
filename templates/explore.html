@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-8">
+
+        {% if photos %}
+        {% for photo in photos %}
+        <div class="card mb-4">
+            <h3 class="mt-4 card-title" style="margin-left:10px;margin-right: 10px;">{{photo.title}}</h3>
+            <p class="lead" style="margin-left:10px;margin-right: 10px;">Posted
+                {%if photo.owner %}
+                by {{photo.owner}}
+                {%endif%}
+                on {{photo.date}}
+            </p>
+
+            <hr>
+            {% if photo.url %}
+            <img class="card-img-top img-thumbnail img-fluid rounded" src="{{photo.url}}" alt="">
+            {% endif %}
+            <hr>
+
+            <p class="card-body lead" style="margin-left:10px;margin-right: 10px;">
+                {{photo.explanation|truncatewords:50}}
+            </p>
+            <a style="float : right;" href="{% url 'detail' photo.id %}" class="btn btn-secondary">Read more</a>
+
+
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="col-lg-8">
+            <div class="alert alert-danger">
+                No Photos Found
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Search</h5>
+            </div>
+            <form class="input-group card-body">
+                {% csrf_token %}
+                <input type="text" name="keyword" class="form-control" placeholder="Ara...">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-secondary">
+                        Search
+                    </button>
+                </span>
+            </form>
+        </div>
+    </div>
+
+
+    {% endblock body %}

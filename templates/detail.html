@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-10">
+        <div class="card mb-4">
+            <h3 class="mt-4 card-title" style="margin-left:10px;margin-right: 10px;">{{photoInfo.title}}</h3>
+            <p class="lead" style="margin-left:10px;margin-right: 10px;">Posted 
+                {%if photoInfo.owner %}
+                by {{photoInfo.owner}} 
+                {%endif%}
+                on {{photoInfo.date}}
+            </p>
+
+            <hr>
+            {% if photoInfo.url %}
+            <img class="card-img-top img-thumbnail img-fluid rounded" src="{{photoInfo.url}}" alt="">
+            {% endif %}
+            <hr>
+
+            <p class="card-body lead" style="margin-left:10px;margin-right: 10px;">
+                {{photoInfo.explanation}}
+            </p>
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock body %}
